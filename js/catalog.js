@@ -9,7 +9,7 @@ let counter = 0;
 // On screen load, we call this method to put all of the product options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
-  
+
   //DONE: Add an <option> tag inside the form's select for each product
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) {
@@ -25,7 +25,7 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
   event.preventDefault();
-  
+
   // DONE: Prevent the page from reloading
 
   // Do all the things ...
@@ -33,7 +33,7 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-  
+
 }
 
 // DONE: Add the selected item and quantity to the cart
@@ -56,7 +56,7 @@ function updateCounter() {
   quantitySelected = parseInt(quantitySelected);
   counter += quantitySelected;
   let cartCounter = document.getElementById('itemCount');
-  cartCounter.textContent = counter;
+  cartCounter.textContent = ' ' + counter + ' items';
 }
 
 // DONE: As you add items into the cart, show them (item & quantity) in the cart preview div
@@ -67,7 +67,7 @@ function updateCartPreview() {
   let quantitySelected = document.getElementById('quantity').value;
   let cartContents = document.getElementById('cartContents');
   let newContent = document.createElement('span');
-  newContent.textContent = itemSelected + ' , ' + quantitySelected + '   ';
+  newContent.textContent = itemSelected + ' , ' + quantitySelected + '.  ';
   cartContents.appendChild(newContent);
 }
 
